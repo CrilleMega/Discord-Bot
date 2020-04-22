@@ -1,1 +1,1 @@
-start cmd /k node bot.js
+node bot.js
