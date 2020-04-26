@@ -12,7 +12,7 @@ var Prefix = "!";
 //When bot is ready to go.
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}!`);
-  bot.user.setActivity("Headbanging to hardstyle."); 
+  bot.user.setActivity("Go harass @Crilluz#6969 if something's wrong."); 
 });
 
 //If a message got sent in the channel.
@@ -46,10 +46,20 @@ bot.on('message', msg =>
             msg.channel.send(`${songs[Math.floor(Math.random() * songs.length)]}`);
             break;
         //Roll a die.
+        case ("r"):
         case("roll"):
             //Only accept the command if it has !roll and a number
             if(m.length != 2){return;}
             msg.channel.send(`:game_die: You rolled: ${Math.floor(Math.random() * parseInt(m[1]))+1}`);
+            break;
+        case("nwordcount"):
+                //foreach instance of "nigga" or "nigger", add one for the mentioned user (args[1]) and output the amount of n-words said.
+                //TODO: Search for individual words said by person.
+                //Search should be: from:@mentionedUser#6969 nword1
+                //from:user in:channel apples
+            break;
+        case ("help"):
+                msg.channel.send(`!roll {number} - Rolls a die. !music gives you good songs.`);
             break;
       }
   }
