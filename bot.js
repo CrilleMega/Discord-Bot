@@ -49,8 +49,21 @@ bot.on('message', msg =>
         case ("r"):
         case("roll"):
             //Only accept the command if it has !roll and a number
-            if(m.length != 2){return;}
-            msg.channel.send(`:game_die: You rolled: ${Math.floor(Math.random() * parseInt(m[1]))+1}`);
+            if(m.length <= 2){return;}
+            var roll = `:game_die: You rolled: `;
+            if(m.length == 3)
+            {
+                if(parseInt(m[2]) == 0 || parseInt(m[2]) > 100){return;}
+                for(var i = 0; i<parseInt(m[2]); i++)
+                {
+                    roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1} `;
+                }
+            }
+            else
+            {
+                roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1} `;
+            }
+            msg.channel.send(roll);
             break;
         case("nwordcount"):
                 //foreach instance of "nigga" or "nigger", add one for the mentioned user (args[1]) and output the amount of n-words said.
@@ -59,7 +72,7 @@ bot.on('message', msg =>
                 //from:user in:channel apples
             break;
         case ("help"):
-                msg.channel.send(`!roll {number} - Rolls a die. !music gives you good songs.`);
+                msg.channel.send(`!roll {dX} {no. dice} (1 if blank) - Rolls a die. !music gives you good songs.`);
             break;
       }
   }
