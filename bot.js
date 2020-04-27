@@ -49,7 +49,7 @@ bot.on('message', msg =>
         case ("r"):
         case("roll"):
             //Only accept the command if it has !roll and a number
-            if(m.length <= 2){return;}
+            if(m.length < 2){return;}
             var roll = `:game_die: You rolled: `;
             if(m.length == 3)
             {
@@ -59,13 +59,9 @@ bot.on('message', msg =>
                     roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1} `;
                 }
             }
-            else if(m.length == 2)
-            {
-                roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1}`;
-            }
             else
             {
-            msg.channel.send("Something went wrong and I don't know why.");
+                roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1}`;
             }
             msg.channel.send(roll);
             break;
