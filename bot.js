@@ -53,15 +53,19 @@ bot.on('message', msg =>
             var roll = `:game_die: You rolled: `;
             if(m.length == 3)
             {
-                if(parseInt(m[2]) == 0 || parseInt(m[2]) > 100){return;}
+                if(parseInt(m[2]) > 100){return;}
                 for(var i = 0; i<parseInt(m[2]); i++)
                 {
                     roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1} `;
                 }
             }
+            else if(m.length == 2)
+            {
+                roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1}`;
+            }
             else
             {
-                roll += ` ${Math.floor(Math.random() * parseInt(m[1]))+1} `;
+            msg.channel.send("Something went wrong and I don't know why.");
             }
             msg.channel.send(roll);
             break;
