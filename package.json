@@ -1,14 +1,28 @@
 {
-  "name": "Crille's Bot",
+  "name": "Discord-Bot",
   "version": "1.0.0",
-  "description": "My First Discord Bot",
+  "description": "My bot",
   "main": "bot.js",
-  "author": "Crille",
   "dependencies": {
-    "-": "0.0.1",
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-    "discord.js": "^12.2.0",
+    "-": "^0.0.1",
+    "discord.js": "^12.5.1",
+    "i": "^0.3.6",
     "save": "^2.4.0",
     "winston": "^3.2.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrilleMega/Discord-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CrilleMega/Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/CrilleMega/Discord-Bot#readme"
 }
