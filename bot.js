@@ -2,17 +2,20 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const Token = require("./auth.json").token;
+const {Player} = require('discord-player');
 
 //Songlist
 var songs = [];
 songs = require('./music.js').songs;
 //Prefix for commands.
 var Prefix = "!";
+bot.player = new Player(bot);
+bot.player.on('trackStart', (message, track) => message.channel.send(`Now playing ${track.title}...`));
 
 //When bot is ready to go.
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}!`);
-  bot.user.setActivity("Go harass @Crilluz#6969 if something's wrong."); 
+  bot.user.setActivity("Go harass @Crilluz#6969 if something's wrong, or harass him even if nothing's wrong. Just go harass him"); 
 });
 
 //If a message got sent in the channel.
@@ -73,6 +76,11 @@ bot.on('message', msg =>
             break;
         case ("help"):
                 msg.channel.send(`!roll {dX} {no. dice} (1 if blank) - Rolls a die. !music gives you good songs.`);
+            break;
+        case ("drip"):
+            msg.channel.send("Initiating Drip");
+            bot.player.play(message, "attack on drip song", true);
+            // then we play some drip songs idonno
             break;
       }
   }
